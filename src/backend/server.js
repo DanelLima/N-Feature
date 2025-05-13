@@ -25,10 +25,10 @@ db.connect((err) => {
 
 // Rota de login
 app.post("/login", (req, res) => {
-  const { cpf, senha } = req.body;
+  const { email, senha } = req.body;
 
-  const query = "SELECT * FROM usuarios WHERE cpf = ? AND senha = ?";
-  db.query(query, [cpf, senha], (err, results) => {
+  const query = "SELECT * FROM usuario WHERE email = ? AND senha = ?";
+  db.query(query, [email, senha], (err, results) => {
     if (err) {
       console.error("Erro ao consultar banco:", err);
       return res.status(500).json({ message: "Erro interno do servidor" });
@@ -39,7 +39,7 @@ app.post("/login", (req, res) => {
       return res.json({ message: "Login realizado com sucesso!" });
     } else {
       // Usuário não encontrado
-      return res.status(401).json({ message: "CPF ou senha inválidos" });
+      return res.status(401).json({ message: "E-mail ou senha inválidos" });
     }
   });
 });

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [cpf, setCpf] = useState("");
+  const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate(); // Para navegação após login
 
@@ -15,7 +15,7 @@ export default function Login() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ cpf, senha }),
+      body: JSON.stringify({ email, senha }),
     });
     
     // Se o login for bem-sucedido, redireciona para o menu
@@ -32,13 +32,13 @@ export default function Login() {
       <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow-sm w-25">
         <h2 className="text-center mb-4">Login - N Feature</h2>
         <div className="mb-3">
-          <label className="form-label">CPF</label>
+          <label className="form-label">E-mail</label>
           <input
-            type="text"
-            value={cpf}
-            onChange={(e) => setCpf(e.target.value)}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="form-control"
-            placeholder="Digite seu CPF"
+            placeholder="Digite seu E-mail"
             required
           />
         </div>
