@@ -30,7 +30,8 @@ export default function Login() {
   return (
     <div className="d-flex min-vh-100 align-items-center justify-content-center bg-light">
       <form onSubmit={handleSubmit} className="bg-white p-4 rounded shadow-sm w-25">
-        <h2 className="text-center mb-4">Login - N Feature</h2>
+        <h2 className="text-center mb-4">NFeature</h2>
+        <h3 className="text-center mb-5">login</h3>
         <div className="mb-3">
           <label className="form-label">E-mail</label>
           <input
